@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -14,11 +15,22 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
+    emailjs.send(
+      'service_79c3hda',
+      'template_2x6kbrb',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      'jRQBqaGCKHsfhEzal'
+    ).then(() => {
+      setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setSubmitted(false);
-    }, 4000);
+    }).catch(() => {
+      alert('Failed to send message. Please try again or email us directly at kgssa.pngut@gmail.com');
+    });
   };
 
   return (
