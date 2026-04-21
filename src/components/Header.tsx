@@ -17,7 +17,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-gray-900 border-b border-white/5 text-white shadow-xl sticky top-0 z-50">
+    <header className="bg-gray-900 border-b-2 border-yellow-400 text-white shadow-xl sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -61,18 +61,18 @@ export default function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 bg-yellow-400 p-3 rounded-xl"
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-yellow-400 transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-yellow-400 transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-yellow-400 transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-gray-900 transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-gray-900 transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-gray-900 transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </nav>
 
       {/* Mobile nav */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-white/5 px-4 py-3 space-y-1">
+        <div className="md:hidden bg-gray-950 border-t-2 border-yellow-400 px-4 py-4 space-y-2">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
@@ -80,13 +80,14 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-sm font-black uppercase tracking-wide transition-all duration-200
+                className={`flex items-center justify-between px-5 py-4 rounded-2xl text-base font-black uppercase tracking-widest transition-all duration-200
                   ${active
                     ? 'bg-yellow-400 text-black'
-                    : 'text-gray-300 hover:text-yellow-400 hover:bg-white/5'
+                    : 'bg-gray-800 text-white hover:bg-yellow-400 hover:text-black'
                   }`}
               >
                 {label}
+                <span className={`text-lg ${active ? 'text-black' : 'text-yellow-400'}`}>→</span>
               </Link>
             );
           })}
