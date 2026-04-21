@@ -103,7 +103,7 @@ export default function About() {
             <div>
               <p className="text-yellow-400 text-xs font-bold uppercase tracking-widest mb-3">Kairuku District</p>
               <div className="space-y-2">
-                {['Kairuku-Roro LLG', 'Mekeo-Kui LLG', 'Nara-Gabadi LLG'].map(llg => (
+                {['Kairuku-Roro LLG', 'Mekeo-Kuni LLG', 'Nara-Gabadi LLG'].map(llg => (
                   <div key={llg} className="bg-gray-800 rounded-xl px-5 py-3 text-gray-300 text-sm font-medium border border-white/5">
                     {llg}
                   </div>
@@ -113,7 +113,7 @@ export default function About() {
             <div>
               <p className="text-yellow-400 text-xs font-bold uppercase tracking-widest mb-3">Goilala District</p>
               <div className="space-y-2">
-                {['Waitape LLG', 'Tapini LLG'].map(llg => (
+                {['Waitape LLG', 'Tapini LLG', 'Guari Rural LLG'].map(llg => (
                   <div key={llg} className="bg-gray-800 rounded-xl px-5 py-3 text-gray-300 text-sm font-medium border border-white/5">
                     {llg}
                   </div>
