@@ -200,7 +200,15 @@ export default function Home() {
             </div>
           </div>
           <div className="shrink-0">
-            <p className="text-yellow-400 font-black text-sm uppercase tracking-widest animate-pulse">↘ Chat with us</p>
+            <button
+              onClick={() => {
+                const event = new CustomEvent('openKGSSAChat');
+                window.dispatchEvent(event);
+              }}
+              className="text-yellow-400 font-black text-sm uppercase tracking-widest animate-pulse hover:text-yellow-300 transition-colors"
+            >
+              ↘ Chat with us
+            </button>
           </div>
         </div>
       </section>

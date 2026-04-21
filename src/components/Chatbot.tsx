@@ -23,9 +23,11 @@ const kgssaFAQ: Record<string, string> = {
   'email':        'Our email address is kgssa.pngut@gmail.com — feel free to send us a message anytime!',
   'gmail':        'Our email address is kgssa.pngut@gmail.com — feel free to send us a message anytime!',
   'mail':         'Our email address is kgssa.pngut@gmail.com — feel free to send us a message anytime!',
-  'facebook':     'Find us on Facebook! KGSSA Page: https://www.facebook.com/profile.php?id=61575377257618 and KGSSA Group: https://facebook.com/groups/506427326771552/',
+  'fb group':     'Find us on our Facebook Group: https://facebook.com/groups/506427326771552/',
+  'fb page':      'Find us on our Facebook Page: https://www.facebook.com/profile.php?id=61575377257618',
+  'group':        'Find us on our Facebook Group: https://facebook.com/groups/506427326771552/',
   'instagram':    'Follow us on Instagram @_kgssa — https://www.instagram.com/_kgssa',
-  'social':       'Follow us on Facebook (KGSSA Page & Group) and Instagram @_kgssa!',
+  'facebook':     'Find us on Facebook! KGSSA Page: https://www.facebook.com/profile.php?id=61575377257618 and KGSSA Group: https://facebook.com/groups/506427326771552/',
   'follow':       'Follow us on Facebook (KGSSA Page & Group) and Instagram @_kgssa!',
   'president':    'The President provides overall leadership and direction for KGSSA. Elections are held annually — the President must be in 3rd or final year of study.',
   'vice':         'The Vice President assists the President and acts in their absence. They must be in 3rd or final year of study.',
@@ -106,6 +108,27 @@ function formatLangResponse(word: string, lang: string | null): string {
 function getBotResponse(input: string): string {
   const q = input.toLowerCase().trim();
 
+  // Reverse language lookup — if they type a local word
+  const reverseMap: Record<string, string> = {
+    'uaho': 'Girl in Kairuku-Roro is: Uaho',
+    'iviau': 'Girl in Mekeo-Kuni is: Iviau',
+    "va'isi": 'Girl in Nara-Gabadi is: Va\'isi',
+    'hibito,i': 'Boy in Kairuku-Roro is: Hibito,i',
+    'haue': 'Haue is a swag name for boys in Kairuku-Roro! 🔥',
+    'raurani namona': 'Raurani Namona means Good Morning in Kairuku-Roro!',
+    'amagai felo': 'Amagai Felo means Good Morning in Mekeo-Kuni!',
+    'rabi namona': 'Rabi Namona means Good Night in Kairuku-Roro!',
+    'gapi felo': 'Gapi Felo means Good Night in Mekeo-Kuni!',
+    'vavuga nonoa': 'Vavuga Nonoa means Good Night in Nara-Gabadi!',
+    'rabirabi namona': 'Rabirabi Namona means Good Evening in Kairuku-Roro!',
+    'gapigapi felo': 'GapiGapi Felo means Good Evening in Mekeo-Kuni!',
+    'haparua': 'Haparua means Goodbye in Kairuku-Roro!',
+    'kamaeno': 'Kamaeno means Goodbye in Nara-Gabadi!',
+  };
+  for (const [key, val] of Object.entries(reverseMap)) {
+    if (q.includes(key)) return val;
+  }
+
   // Language query
   const word = getWordFromQuery(q);
   if (word) {
@@ -119,13 +142,13 @@ function getBotResponse(input: string): string {
   }
 
   // Fallback
-  return "I'm not sure about that yet! You can ask me:\n\n• How to say words in Kairuku-Roro, Mekeo-Kuni or Nara-Gabadi\n• About joining KGSSA\n• About our events\n• About our executive positions\n• How to contact us\n\nTry: \"How do you say goodbye in Kairuku?\"";
+  return "I'm not sure about that yet! Try asking me:\n\n• \"How do I join KGSSA?\"\n• \"What is the email?\"\n• \"Who is the president?\"\n• \"How do you say goodbye in Kairuku?\"\n• \"What is girl in Mekeo?\"";
 }
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { from: 'bot', text: "Raurani Namona! 👋 I'm the KGSSA chatbot. Ask me about KGSSA or how to say words in our local languages — Kairuku-Roro, Mekeo-Kuni and Nara-Gabadi!" }
+    { from: 'bot', text: "Raurani Namona! 👋 I'm the KGSSA chatbot. Ask me about KGSSA or how to say words in our local languages — Kairuku-Roro, Mekeo-Kuni and Nara-Gabadi!\n\nI can help you with:\n• Joining KGSSA\n• Our events & activities\n• Executive positions\n• Contact information\n• Our constitution\n\nYou can also learn words in our local languages here\n\nWhat would you like to know?" }
   ]);
   const [input, setInput] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -133,6 +156,12 @@ export default function Chatbot() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, open]);
+
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('openKGSSAChat', handler);
+    return () => window.removeEventListener('openKGSSAChat', handler);
+  }, []);
 
   const send = () => {
     if (!input.trim()) return;
@@ -151,7 +180,7 @@ export default function Chatbot() {
 
       {/* Chat window */}
       {open && (
-        <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ height: '480px' }}>
+        <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ height: '600px' }}>
 
           {/* Header */}
           <div className="bg-gray-900 px-5 py-4 flex items-center justify-between shrink-0">
@@ -166,7 +195,7 @@ export default function Chatbot() {
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed
+                <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed break-words
                   ${msg.from === 'user'
                     ? 'bg-gray-900 text-white font-semibold rounded-br-sm'
                     : 'bg-white text-gray-800 border border-gray-200 rounded-bl-sm shadow-sm'

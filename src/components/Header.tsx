@@ -52,9 +52,23 @@ export default function Header() {
         </div>
 
         {/* UOT Logo — far right */}
-        <div className="hidden md:flex items-center pl-4 border-l border-white/10 ml-2">
-          <div className="relative w-10 h-10">
-            <Image src="/UOT_logo.jpg" alt="PNG University of Technology" fill sizes="40px" className="object-contain" />
+        <div className="hidden md:flex items-center gap-3 ml-2">
+          <button
+            onClick={() => {
+              const event = new CustomEvent('openKGSSAChat');
+              window.dispatchEvent(event);
+            }}
+            className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-black text-xs uppercase tracking-wide px-3 py-2 rounded-xl transition-all duration-200"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Chat
+          </button>
+          <div className="pl-3 border-l border-white/10">
+            <div className="relative w-10 h-10">
+              <Image src="/UOT_logo.jpg" alt="PNG University of Technology" fill sizes="40px" className="object-contain" />
+            </div>
           </div>
         </div>
 
@@ -94,6 +108,17 @@ export default function Header() {
               </Link>
             );
           })}
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              const event = new CustomEvent('openKGSSAChat');
+              window.dispatchEvent(event);
+            }}
+            className="flex items-center justify-between w-full px-5 py-4 rounded-2xl text-base font-black uppercase tracking-widest transition-all duration-200 bg-gray-800 text-white hover:bg-yellow-400 hover:text-black"
+          >
+            Chat
+            <span className="text-lg text-yellow-400">💬</span>
+          </button>
         </div>
       )}
     </header>
