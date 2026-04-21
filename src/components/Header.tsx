@@ -61,12 +61,15 @@ export default function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 bg-yellow-400 p-3 rounded-xl"
+          className="md:hidden flex items-center gap-2 bg-yellow-400 px-4 py-2.5 rounded-xl"
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`} />
-          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+          <div className="flex flex-col gap-1.5">
+            <span className={`block w-6 h-[3px] bg-gray-900 transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-6 h-[3px] bg-gray-900 transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-[3px] bg-gray-900 transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+          </div>
+          <span className="text-gray-900 font-black text-sm uppercase tracking-widest">{isOpen ? 'Close' : 'Menu'}</span>
         </button>
       </nav>
 
