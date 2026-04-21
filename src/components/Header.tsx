@@ -32,14 +32,14 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav — right corner */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`px-5 py-2.5 rounded-xl text-sm tracking-wide transition-all duration-200 font-black uppercase
+                className={`px-3 py-2 rounded-xl text-xs tracking-wide transition-all duration-200 font-black uppercase whitespace-nowrap
                   ${active
                     ? 'bg-yellow-400 text-black'
                     : 'text-gray-300 hover:text-yellow-400 hover:bg-white/5'
