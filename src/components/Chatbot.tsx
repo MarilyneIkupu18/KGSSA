@@ -180,19 +180,19 @@ export default function Chatbot() {
 
       {/* Chat window */}
       {open && (
-        <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ height: '600px' }}>
+        <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden max-h-[calc(100vh-120px)]" style={{ height: '600px' }}>
 
           {/* Header */}
-          <div className="bg-gray-900 px-5 py-4 flex items-center justify-between shrink-0">
+          <div className="bg-gradient-to-r from-rose-800 via-gray-900 to-green-800 px-5 py-4 flex items-center justify-between shrink-0 border-b border-yellow-400/30">
             <div>
               <p className="font-black text-yellow-400 text-sm">KGSSA Chat</p>
-              <p className="text-gray-400 text-xs">Ask about KGSSA or our local languages</p>
+              <p className="text-yellow-300 text-xs">Ask about KGSSA or our local languages</p>
             </div>
-            <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-white font-black text-lg leading-none transition-colors">✕</button>
+            <button onClick={() => setOpen(false)} className="bg-red-500 hover:bg-red-600 text-white font-black text-lg leading-none transition-colors rounded-full w-8 h-8 flex items-center justify-center shadow-lg">✕</button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gradient-to-b from-gray-50 to-white">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed break-words
