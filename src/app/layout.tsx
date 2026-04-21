@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
   title: "KGSSA - Kairuku-Goilala Student & Staff Association",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
+        <Chatbot />
         <Footer />
       </body>
     </html>
