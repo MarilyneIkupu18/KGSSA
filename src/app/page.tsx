@@ -185,6 +185,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── CHATBOT CALLOUT ── */}
+      <section className="bg-gray-900 py-10 px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 bg-gray-800 rounded-2xl px-8 py-6 border border-yellow-400/20">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-white font-black text-base">Need help navigating? Ask our chatbot!</p>
+              <p className="text-gray-400 text-xs mt-0.5">Ask about KGSSA, membership, events — or learn words in Kairuku-Roro, Mekeo-Kuni &amp; Nara-Gabadi</p>
+            </div>
+          </div>
+          <div className="shrink-0">
+            <p className="text-yellow-400 font-black text-sm uppercase tracking-widest animate-pulse">↘ Chat with us</p>
+          </div>
+        </div>
+      </section>
+
       {/* ── MEMBERSHIP CTA ── */}
       <section className="relative bg-gray-950 py-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-rose-950/30 via-transparent to-yellow-950/10" />

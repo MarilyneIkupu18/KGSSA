@@ -151,25 +151,25 @@ export default function Chatbot() {
 
       {/* Chat window */}
       {open && (
-        <div className="w-80 sm:w-96 bg-gray-900 rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden" style={{ height: '480px' }}>
+        <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden" style={{ height: '480px' }}>
 
           {/* Header */}
-          <div className="bg-yellow-400 px-5 py-4 flex items-center justify-between shrink-0">
+          <div className="bg-gray-900 px-5 py-4 flex items-center justify-between shrink-0">
             <div>
-              <p className="font-black text-gray-900 text-sm">KGSSA Chat</p>
-              <p className="text-gray-800 text-xs">Ask about KGSSA or our local languages</p>
+              <p className="font-black text-yellow-400 text-sm">KGSSA Chat</p>
+              <p className="text-gray-400 text-xs">Ask about KGSSA or our local languages</p>
             </div>
-            <button onClick={() => setOpen(false)} className="text-gray-900 font-black text-lg leading-none">✕</button>
+            <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-white font-black text-lg leading-none transition-colors">✕</button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed
                   ${msg.from === 'user'
-                    ? 'bg-yellow-400 text-gray-900 font-semibold rounded-br-sm'
-                    : 'bg-gray-800 text-gray-100 rounded-bl-sm'
+                    ? 'bg-gray-900 text-white font-semibold rounded-br-sm'
+                    : 'bg-white text-gray-800 border border-gray-200 rounded-bl-sm shadow-sm'
                   }`}>
                   {msg.text}
                 </div>
@@ -179,13 +179,13 @@ export default function Chatbot() {
           </div>
 
           {/* Input */}
-          <div className="px-4 py-3 border-t border-white/10 flex gap-2 shrink-0">
+          <div className="px-4 py-3 border-t border-gray-200 flex gap-2 shrink-0 bg-white">
             <input
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
               placeholder="Ask something..."
-              className="flex-1 bg-gray-800 text-white placeholder-gray-500 text-sm px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-yellow-400"
+              className="flex-1 bg-gray-100 text-gray-900 placeholder-gray-400 text-sm px-4 py-2.5 rounded-xl outline-none focus:ring-2 focus:ring-yellow-400 border border-gray-200"
             />
             <button
               onClick={send}
