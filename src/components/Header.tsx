@@ -64,9 +64,9 @@ export default function Header() {
           className="md:hidden flex flex-col gap-1.5 bg-yellow-400 p-3 rounded-xl"
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-1 bg-gray-900 rounded-full transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`} />
-          <span className={`block w-6 h-1 bg-gray-900 rounded-full transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-1 bg-gray-900 rounded-full transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`} />
+          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-1 bg-gray-900 transition-all duration-200 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
         </button>
       </nav>
 
