@@ -205,7 +205,7 @@ export default function Chatbot() {
   return (
     <div className="fixed inset-x-4 bottom-4 z-50 flex flex-col items-stretch gap-3 sm:left-auto sm:right-6 sm:bottom-6 sm:items-end">
       {open && (
-        <div className="w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl sm:w-96 sm:max-w-sm">
+        <div className="w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl sm:w-[26rem] sm:max-w-[26rem]">
           <div className="flex items-center justify-between border-b border-yellow-400/30 bg-gradient-to-r from-rose-800 via-gray-900 to-green-800 px-5 py-4">
             <div>
               <p className="text-sm font-black text-yellow-400">KGSSA Chat</p>
@@ -219,14 +219,14 @@ export default function Chatbot() {
             </button>
           </div>
 
-          <div className="max-h-[min(calc(100vh-11rem),32rem)] space-y-5 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-5 py-6 sm:px-6">
+          <div className="max-h-[min(calc(100vh-11rem),32rem)] space-y-5 overflow-y-auto bg-gradient-to-b from-gray-50 via-amber-50/40 to-white px-6 py-6 sm:px-7">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
-                  className={`max-w-[78%] whitespace-pre-line break-words rounded-[1.4rem] px-5 py-4 text-sm leading-7 shadow-md ${
+                  className={`max-w-[74%] whitespace-pre-line break-words rounded-[1.4rem] px-5 py-4 text-sm leading-7 shadow-md ${
                     msg.from === 'user'
-                      ? 'rounded-br-sm bg-gradient-to-br from-yellow-300 to-amber-200 font-semibold text-gray-900'
-                      : 'rounded-bl-sm border border-amber-100 bg-gradient-to-br from-white to-amber-50 text-gray-800'
+                      ? 'rounded-br-sm border border-amber-300 bg-gradient-to-br from-yellow-300 to-amber-200 font-semibold text-gray-900'
+                      : 'rounded-bl-sm border border-sky-100 bg-gradient-to-br from-white to-sky-50 text-slate-800'
                   }`}
                 >
                   {msg.text}
@@ -236,17 +236,17 @@ export default function Chatbot() {
             <div ref={bottomRef} />
           </div>
 
-          <div className="flex gap-2 border-t border-gray-200 bg-white px-4 py-4 sm:px-5">
+          <div className="flex gap-3 border-t border-gray-200 bg-gradient-to-r from-white to-amber-50 px-5 py-5 sm:px-6">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKey}
               placeholder="Ask something..."
-              className="flex-1 rounded-xl border border-gray-200 bg-gray-100 px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-yellow-400"
+              className="flex-1 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-gray-900 outline-none placeholder:text-gray-500 focus:ring-2 focus:ring-yellow-400"
             />
             <button
               onClick={send}
-              className="rounded-xl bg-yellow-400 px-4 py-2.5 text-sm font-black text-gray-900 transition-all duration-200 hover:bg-yellow-300"
+              className="rounded-2xl bg-yellow-400 px-5 py-3 text-sm font-black text-gray-900 transition-all duration-200 hover:bg-yellow-300"
             >
               Send
             </button>
