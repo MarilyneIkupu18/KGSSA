@@ -136,7 +136,8 @@ const culturalAlbum = [
 export default function Events() {
   const [selectedYear, setSelectedYear] = useState<keyof typeof yearlyEvents | null>(null);
   const years = Object.keys(yearlyEvents)
-    .sort((a, b) => parseInt(b) - parseInt(a)) as Array<keyof typeof yearlyEvents>;
+    .map((year) => Number(year) as keyof typeof yearlyEvents)
+    .sort((a, b) => Number(b) - Number(a));
 
   return (
     <div className="min-h-screen bg-gray-950">
