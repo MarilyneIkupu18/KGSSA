@@ -160,16 +160,11 @@ export default function Chatbot() {
     {
       from: 'bot',
       text: [
-        "Good morning! I'm the KGSSA chatbot.",
+        "Good morning! I'm the KGSSA website assistant.",
         '',
-        'Ask me about KGSSA or how to say words in our local languages: Kairuku-Roro, Mekeo-Kuni and Nara-Gabadi.',
+        'I can help with KGSSA membership, events, leaders, contact details, and how to use this website.',
         '',
-        'I can help you with:',
-        '- Joining KGSSA',
-        '- Our events and activities',
-        '- Executive positions',
-        '- Contact information',
-        '- Our constitution',
+        'Language translations are also available if you want them.',
         '',
         'What would you like to know?',
       ].join('\n'),
@@ -219,17 +214,18 @@ export default function Chatbot() {
             </button>
           </div>
 
-          <div className="max-h-[min(calc(100vh-11rem),32rem)] space-y-5 overflow-y-auto bg-gradient-to-b from-gray-50 via-amber-50/40 to-white px-7 py-7 sm:px-8 sm:py-8">
+          <div className="max-h-[min(calc(100vh-11rem),32rem)] overflow-y-auto bg-gradient-to-b from-gray-50 via-amber-50/40 to-white px-6 py-7 sm:px-7 sm:py-8">
+            <div className="mx-auto flex w-full max-w-[20rem] flex-col gap-5 sm:max-w-[21rem]">
             {messages.map((msg, i) => (
               <div
                 key={i}
-                className={`flex ${msg.from === 'user' ? 'justify-end pr-4 sm:pr-5' : 'justify-start pl-4 sm:pl-5'}`}
+                className={`flex w-full ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[68%] whitespace-pre-line break-words rounded-[1.4rem] px-5 py-4 text-sm leading-7 shadow-md ${
+                  className={`max-w-[78%] whitespace-pre-line break-words rounded-[1.4rem] px-5 py-4 text-sm leading-7 shadow-md ${
                     msg.from === 'user'
                       ? 'rounded-br-sm border border-amber-300 bg-gradient-to-br from-yellow-300 to-amber-200 font-semibold text-gray-900'
-                      : 'rounded-bl-sm border border-sky-300 bg-gradient-to-br from-sky-200 to-cyan-200 text-slate-900'
+                      : 'rounded-bl-sm border border-sky-400 bg-gradient-to-br from-sky-300 to-cyan-300 text-slate-950'
                   }`}
                 >
                   {msg.text}
@@ -237,6 +233,7 @@ export default function Chatbot() {
               </div>
             ))}
             <div ref={bottomRef} />
+            </div>
           </div>
 
           <div className="border-t border-gray-200 bg-gradient-to-r from-white to-amber-50 px-6 py-6 sm:px-7">
