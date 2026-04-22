@@ -3,13 +3,13 @@ import Image from 'next/image';
 const homelandHighlights = [
   {
     title: 'Hiritano Highway',
-    image: '/HIRITANO_HIGHWAY.jpg',
+    image: '/HIRITANO_HIGHWAY.jpeg',
     description:
       'The Hiritano Highway is one of the most recognisable routes connected to our home region in Central Province and reflects the journey many of our members identify with.',
   },
   {
     title: 'Yule Island',
-    image: '/YULE_ISLAND_ONLY_ISLAND_IN_KAIRUKU.webp',
+    image: '/YULE_ISLAND_KAIRUKU.jpeg',
     description:
       'Yule Island is the only island in Kairuku and is an important part of the district identity that KGSSA proudly represents.',
   },
@@ -25,7 +25,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gray-950">
       <section className="border-b border-white/5 bg-gray-900 px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <span className="mb-6 inline-block rounded-full bg-yellow-400 px-4 py-2 text-xs font-bold uppercase tracking-widest text-black">
             Who We Are
           </span>
@@ -39,7 +39,7 @@ export default function About() {
       </section>
 
       <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           <div className="rounded-3xl border-t-4 border-rose-700 bg-gray-800 p-8">
             <h2 className="mb-4 text-xl font-black uppercase tracking-wide text-white">Mission</h2>
             <p className="leading-relaxed text-gray-400">
@@ -76,7 +76,7 @@ export default function About() {
       </section>
 
       <section className="bg-gray-900 px-6 py-20">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Membership</span>
             <h2 className="mt-2 text-4xl font-black text-white">Who Can Join?</h2>
@@ -99,14 +99,14 @@ export default function About() {
       </section>
 
       <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Our Roots</span>
             <h2 className="mt-2 text-4xl font-black text-white">Kairuku &amp; Goilala Districts</h2>
             <p className="mt-1 text-sm text-gray-500">Central Province, Papua New Guinea</p>
           </div>
 
-          <div className="mb-8 rounded-3xl bg-gray-800 p-10">
+          <div className="mb-8 rounded-3xl bg-gray-800 p-10 text-center">
             <p className="mb-6 text-lg leading-relaxed text-gray-300">
               KGSSA represents students and staff from two districts within <span className="font-semibold text-yellow-400">Central Province, Papua New Guinea</span>: the <span className="font-semibold text-white">Kairuku District</span> and the <span className="font-semibold text-white">Goilala District</span>. Together, these districts form the heart of our association.
             </p>
@@ -115,8 +115,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="text-center">
               <p className="mb-3 text-xs font-bold uppercase tracking-widest text-yellow-400">Kairuku District</p>
               <div className="space-y-2">
                 {['Kairuku-Roro LLG', 'Mekeo-Kuni LLG', 'Nara-Gabadi LLG'].map((llg) => (
@@ -126,7 +126,7 @@ export default function About() {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="text-center">
               <p className="mb-3 text-xs font-bold uppercase tracking-widest text-yellow-400">Goilala District</p>
               <div className="space-y-2">
                 {['Waitape LLG', 'Tapini LLG', 'Guari Rural LLG'].map((llg) => (
@@ -141,7 +141,7 @@ export default function About() {
       </section>
 
       <section className="bg-gray-900 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Homeland Highlights</span>
             <h2 className="mt-2 text-4xl font-black text-white">Places That Reflect Our Origin</h2>
@@ -166,7 +166,7 @@ export default function About() {
       </section>
 
       <section className="bg-gray-900 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Leadership</span>
             <h2 className="mt-2 text-4xl font-black text-white">Executive Structure</h2>
@@ -218,7 +218,7 @@ export default function About() {
       </section>
 
       <section className="px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Governance</span>
           <h2 className="mt-2 mb-4 text-4xl font-black text-white">Our Constitution</h2>
           <p className="mb-8 leading-relaxed text-gray-400">

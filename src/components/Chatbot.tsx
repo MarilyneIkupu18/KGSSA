@@ -17,6 +17,9 @@ const kgssaFAQ: Record<string, string> = {
   join: 'To join KGSSA, you must be a student or staff at PNG University of Technology from the Kairuku or Goilala districts, or any Unitech student faithful to the association. Reach out via email at kgssa.pngut@gmail.com or approach any executive member on campus.',
   membership: 'To join KGSSA, you must be a student or staff at PNG University of Technology from the Kairuku or Goilala districts, or any Unitech student faithful to the association. Reach out via email at kgssa.pngut@gmail.com or approach any executive member on campus.',
   member: 'To join KGSSA, you must be a student or staff at PNG University of Technology from the Kairuku or Goilala districts, or any Unitech student faithful to the association. Reach out via email at kgssa.pngut@gmail.com or approach any executive member on campus.',
+  faithful: 'Yes. Even if you are not from Kairuku or Goilala, membership can still be open to any Unitech student who is faithful and committed to the association and its community.',
+  'not from': 'If you are not from Kairuku or Goilala, you may still join as a faithful and committed Unitech student who supports the association and its community.',
+  kaigoi: 'KGSSA mainly represents students and staff from Kairuku and Goilala, but membership can also be open to faithful Unitech students who support the association.',
   event: 'Check our Events and Gallery page for all past and upcoming events. We organise fundraising, orientation, awareness programs, cultural events and more.',
   gallery: 'Check our Events and Gallery page for all past and upcoming events from 2021 to 2026.',
   contact: 'You can reach us at kgssa.pngut@gmail.com, on Facebook (KGSSA Page and Group), or on Instagram @_kgssa.',
@@ -212,13 +215,13 @@ export default function Chatbot() {
             </button>
           </div>
 
-          <div className="max-h-[min(calc(100vh-11rem),32rem)] space-y-3 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-3 py-4 sm:px-4">
+          <div className="max-h-[min(calc(100vh-11rem),32rem)] space-y-4 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-4 py-5 sm:px-5">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
-                  className={`max-w-[86%] whitespace-pre-line break-words rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
+                  className={`max-w-[82%] whitespace-pre-line break-words rounded-2xl px-5 py-4 text-sm leading-relaxed shadow-sm ${
                     msg.from === 'user'
-                      ? 'rounded-br-sm bg-yellow-300 font-semibold text-gray-900'
+                      ? 'rounded-br-sm bg-gradient-to-br from-yellow-300 to-amber-200 font-semibold text-gray-900'
                       : 'rounded-bl-sm border border-gray-200 bg-white text-gray-800'
                   }`}
                 >
@@ -229,7 +232,7 @@ export default function Chatbot() {
             <div ref={bottomRef} />
           </div>
 
-          <div className="flex gap-2 border-t border-gray-200 bg-white px-3 py-3 sm:px-4">
+          <div className="flex gap-2 border-t border-gray-200 bg-white px-4 py-4 sm:px-5">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
