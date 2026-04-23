@@ -225,7 +225,7 @@ export default function About() {
             KGSSA operates under a formal constitution that outlines our governance structure, member rights, executive responsibilities, and organisational principles.
           </p>
           <a
-            href="/PNG-UOT KGSSA 2ST CONSTITUTION DRAFT 2026.pdf"
+            href="/PNG-UOT KGSSA FINAL CONSTITUTION DRAFT 2026.pdf"
             download
             className="inline-block rounded-xl bg-yellow-400 px-10 py-4 font-black text-black shadow-lg transition-all duration-200 hover:bg-yellow-300"
           >
