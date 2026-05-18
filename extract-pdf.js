@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { PDFParse } = require('pdf-parse');
 
-const pdfPath = './public/PNG-UOT KGSSA 2ST CONSTITUTION DRAFT 2026.pdf';
+const pdfPath = './public/kgssa-constitution-2026.pdf';
 
 const extractText = async () => {
   try {

@@ -59,7 +59,7 @@ src/
 public/
 ├── kai-goi_logo.jpeg         # KGSSA Logo
 ├── [Event Photos]            # Event gallery images (2021-2026)
-└── PNG-UOT KGSSA 2ST CONSTITUTION DRAFT 2026.pdf
+└── kgssa-constitution-2026.pdf
 ```
 
 ## 📸 Content
